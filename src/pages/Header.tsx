@@ -2,12 +2,13 @@ import { Popover, Transition } from "@headlessui/react";
 import Image from "next/image";
 import { MenuIcon, XIcon } from "@heroicons/react/outline";
 import { Fragment } from "react";
+import Link from "next/link";
 
 const navigation = [
-  { name: 'Domov', href: '#' },
-  { name: 'Zaloga', href: '#' },
-  { name: 'Odkup vozil', href: '#' },
-  { name: 'Kje nas najdete', href: '#' },
+  { name: 'Domov', href: '/' },
+  { name: 'Zaloga', href: 'https://www.avto.net/Ads/results.asp?znamka=&model=&modelID=&tip=&znamka2=&model2=&tip2=&znamka3=&model3=&tip3=&cenaMin=0&cenaMax=999999&letnikMin=0&letnikMax=2090&bencin=0&starost2=999&oblika=0&ccmMin=0&ccmMax=99999&mocMin=&mocMax=&kmMin=0&kmMax=9999999&kwMin=0&kwMax=999999&motortakt=0&motorvalji=0&lokacija=0&sirina=0&dolzina=&dolzinaMIN=0&dolzinaMAX=100&nosilnostMIN=0&nosilnostMAX=999999&lezisc=&presek=0&premer=0&col=0&vijakov=0&EToznaka=0&vozilo=&airbag=&barva=&barvaint=&EQ1=1000000000&EQ2=1000000000&EQ3=1000000000&EQ4=1000000000&EQ5=1000000000&EQ6=1000001000&EQ7=1110100120&EQ8=1010000001&EQ9=1000000000&KAT=1010000000&PIA=&PIAzero=&PSLO=&akcija=0&paketgarancije=&broker=634&prikazkategorije=0&kategorija=0&zaloga=10&arhiv=0&presort=2&tipsort=DESC&stran=1&subSORT=1&subTIPSORT=ASC' },
+  { name: 'Odkup vozil', href: '/odkup' },
+  { name: 'Kje nas najdete', href: '#kontakt' },
 
 ]
 
@@ -19,7 +20,7 @@ export default function Header() {
           <div className="flex justify-between items-center max-w-7xl mx-auto px-4 py-6 sm:px-6 md:justify-start md:space-x-10 lg:px-8">
             <div className="flex justify-start lg:w-0 lg:flex-1">
               <a href="#">
-                <span className="sr-only">Workflow</span>
+                <span className="sr-only">Avtomedvode</span>
                 <Image
                   className="h-8 w-auto sm:h-10"
                   src="/logo.png"
@@ -40,20 +41,12 @@ export default function Header() {
 
 
               {navigation.map((item) => (
-                <a key={item.name} href={item.href} className="text-base font-medium text-gray-500 hover:text-gray-900">
+                <Link key={item.name} href={item.href} className="text-base font-medium text-gray-500 hover:text-gray-900">
                   {item.name}
-                </a>
+                </Link>
               ))}
             </Popover.Group>
-            <div className="hidden md:flex items-center justify-end md:flex-1 lg:w-0">
 
-              <a
-                href="#"
-                className="ml-8 whitespace-nowrap inline-flex items-center justify-center px-4 py-2 border border-transparent rounded-md shadow-sm text-base font-medium text-white bg-red-600 hover:bg-red-700"
-              >
-                Kontakt
-              </a>
-            </div>
           </div>
 
           <Transition
@@ -93,13 +86,13 @@ export default function Header() {
                 <div className="py-6 px-5">
                   <div className="grid grid-cols-2 gap-4">
                     {navigation.map((item) => (
-                      <a
+                      <Link
                         key={item.name}
                         href={item.href}
                         className="text-base font-medium text-gray-900 hover:text-gray-700"
                       >
                         {item.name}
-                      </a>
+                      </Link>
                     ))}
                   </div>
 
