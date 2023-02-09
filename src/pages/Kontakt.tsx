@@ -67,7 +67,7 @@ export default function Example() {
       if (res.status === 200) {
         console.log('Email sent')
       } else {
-        console.log(res.body.error)
+       // console.log(res?.body?.error)
       }
     }
     )
