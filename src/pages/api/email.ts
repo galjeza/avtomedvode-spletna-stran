@@ -3,17 +3,18 @@ import sgMail from '@sendgrid/mail'
 import { NextApiRequest, NextApiResponse } from 'next';
 
 const APIKEY="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"
+// write interface for req.body
+interface RequestBody {
+  email: string;
+  message: string;
+}
 
 sgMail.setApiKey(APIKEY);
 
 export default async (req: NextApiRequest, res: NextApiResponse) => {
-  // get data from the request
-  const {
-    email,
-    name,
-    message,
-    phone,
-  } = req.body
+  // get data from req.body with typescript
+  const { email, message }: RequestBody = req.body as RequestBody;
+
 
   const msg = {
     to: 'gal.jeza55@gmail.com',

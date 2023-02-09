@@ -3,8 +3,10 @@ import Header from './Header'
 import Footer from './Footer'
 import Head from 'next/head'
 
-// @ts-ignore
-export default function Layout({ children }) {
+type Props = {
+  children?: JSX.Element | JSX.Element[];};
+
+export default function Layout({ children }: Props) {
   return (
     <>
     <Head>

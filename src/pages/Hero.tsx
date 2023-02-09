@@ -1,16 +1,12 @@
 /* This example requires Tailwind CSS v2.0+ */
-import { Fragment } from 'react'
-import { Popover, Transition } from '@headlessui/react'
+
 import Image from 'next/image'
 import {
   AnnotationIcon,
   ChatAlt2Icon,
   InboxIcon,
-  MenuIcon,
   QuestionMarkCircleIcon,
-  XIcon,
 } from '@heroicons/react/outline'
-import { ChevronDownIcon } from '@heroicons/react/solid'
 import Link from "next/link";
 
 const solutions = [

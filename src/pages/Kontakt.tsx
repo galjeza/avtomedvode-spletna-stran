@@ -15,7 +15,7 @@
   ```
 */
 import { MailIcon, PhoneIcon, MapIcon, ClockIcon } from '@heroicons/react/outline'
-import {useState} from 'react'
+import { MouseEventHandler, useState } from "react";
 
 const workingHours = [
   {
@@ -41,7 +41,7 @@ export default function Example() {
   const [message, setMessage] = useState('')
   const [submitted, setSubmitted] = useState(false)
 
-  const handleSubmit = (e: { preventDefault: () => void }) => {
+  const handleSubmit =     (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault()
 
     console.log(name, email, phone, message)
@@ -51,7 +51,7 @@ export default function Example() {
     setPhone('')
     setMessage('')
 
-    // send data to API
+
     fetch('/api/email', {
       method: 'POST',
       headers: {
@@ -64,15 +64,17 @@ export default function Example() {
         message,
       }),
     }).then((res) => {
-      if (res.status === 200) {
-        console.log('Email sent')
-      } else {
-       // console.log(res?.body?.error)
+        if (res.status === 200) {
+          console.log('Email sent')
+        } else {
+          // console.log(res?.body?.error)
+        }
       }
+    ).catch((error) => {
+      console.log("Napakica")
     }
     )
-
-    }
+  }
   return (
     <div id={"kontakt"} className="relative bg-white">
       <div className="absolute inset-0">
@@ -81,7 +83,7 @@ export default function Example() {
       <div className="relative max-w-7xl mx-auto lg:grid lg:grid-cols-5">
         <div className="bg-white py-16 px-4 sm:px-6 lg:col-span-3 lg:py-24 lg:px-8 xl:pl-12">
           <div className="max-w-lg mx-auto lg:max-w-none">
-            <form action="#" method="POST" className="grid grid-cols-1 gap-y-6">
+            <form action="#" method="POST" onSubmit={handleSubmit} className="grid grid-cols-1 gap-y-6">
               <div>
                 <label htmlFor="full-name" className="sr-only">
                   Ime in priimek
@@ -137,7 +139,6 @@ export default function Example() {
               <div>
                 <button
                   type="submit"
-                  onClick={handleSubmit}
                   className="inline-flex justify-center py-3 px-6 border border-transparent shadow-sm text-base font-medium rounded-md text-white bg-red-600 hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-500"
                 >
                   Pošlji
