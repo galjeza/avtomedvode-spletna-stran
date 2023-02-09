@@ -46,7 +46,7 @@ export default function Example() {
 
 
 
-const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+const handleSubmit = (e: { preventDefault: () => void; }) => {
     e.preventDefault();
     const data = {
       name,
