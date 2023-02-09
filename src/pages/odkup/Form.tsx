@@ -18,7 +18,7 @@ import { useState } from 'react'
 import { Switch } from '@headlessui/react'
 import {useRef} from "react";
 
-function classNames(...classes) {
+function classNames(...classes: string[]) {
   return classes.filter(Boolean).join(' ')
 }
 
@@ -51,7 +51,6 @@ const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     const data = {
       name,
       email,
-      phone,
       phone,
       message,
       lastnik,
@@ -91,6 +90,8 @@ const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
 
 
 
+  // @ts-ignore
+  // @ts-ignore
   return (
     <div id={"forma"} className="bg-white py-16 px-4 overflow-hidden sm:px-6 lg:px-8 lg:py-24">
       <div className="relative max-w-xl mx-auto">
