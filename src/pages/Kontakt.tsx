@@ -20,7 +20,7 @@ import { MouseEventHandler, useState } from "react";
 const workingHours = [
   {
     day: 'Ponedeljek - petek',
-    hours: '9:00 - 18:00',
+    hours: '9:00 - 17:00',
   },
   {
     day: 'Sobota',
@@ -159,7 +159,7 @@ export default function Example() {
                 <dt className="sr-only">Naslov</dt>
                 <dd className="flex">
                   <MapIcon className="flex-shrink-0 h-6 w-6 text-gray-400" aria-hidden="true" />
-                  <span className="ml-3">Gorenjska cesta 12, 1215 Medvode</span>
+                  <span className="ml-3">Gorenjska cesta - zraven trgovine Hofer, 1215 Medvode</span>
                 </dd>
               </div>
               <div className="mt-6">

@@ -4,7 +4,7 @@ import { CheckIcon } from '@heroicons/react/outline'
 const features = [
 
   { name: 'Kakovost', description: 'Vse naše rabljene avtomobile dobro pregledamo, da zagotovimo najvišjo kakovost.' },
-  { name: 'Garancija', description: 'Vsak rabljeni avtomobil, ki ga kupite pri nas, ima 12 mesecev garancije.' },
+  { name: 'Garancija', description: 'Vsak rabljeni avtomobil, ki ga kupite pri nas, ima 12 ali 24 mesecev garancije.' },
   { name: 'Uvoz vozil', description: 'Ponujamo hiter uvoz vozil po naročilu.' },
   { name: 'Ugodno', description: 'Cene naših avtomibilov so konkurenčne.' },
 

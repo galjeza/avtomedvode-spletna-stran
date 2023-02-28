@@ -27,13 +27,10 @@ export default function Example() {
   const [email, setEmail] = useState('')
   const [phone, setPhone] = useState('')
   const [message, setMessage] = useState('')
- const [lastnik, setLastnik] = useState('')
-  const [opissaniranih, setOpissaniranih] = useState('')
   const [ocena, setOcena] = useState('')
-  const [karambol, setKarambol] = useState('')
   const [km, setKm] = useState('')
   const [barva, setBarva] = useState('')
-  const [oprema, setOprema] = useState('')
+  const [zelje, setZelje] = useState('')
   const [model, setModel] = useState('')
   const [prostorninamotorja, setProstorninamotorja] = useState('')
   const [moc, setMoc] = useState('')
@@ -45,63 +42,23 @@ export default function Example() {
 
 
 
-const handleSubmit = async (e: { preventDefault: () => void; }) => {
+const handleSubmit = (e: { preventDefault: () => void; }) => {
     e.preventDefault();
     const data = {
       name,
       email,
       phone,
       message,
-      lastnik,
-      opissaniranih,
       ocena,
-      karambol,
       km,
       barva,
-      oprema,
+      zelje,
       model,
       prostorninamotorja,
       moc,
-      opistrenutnih,
+      
       obvescanje,
     };
-
-    const emailMessage = `
-      Ime: ${data.name}
-      Email: ${data.email}
-      Telefon: ${data.phone}
-      Sporočilo: ${data.message}
-      Lastnik: ${data.lastnik}
-      Opis stanja: ${data.opissaniranih}
-      Ocena: ${data.ocena}
-      Karambol: ${data.karambol}
-      Kilometri: ${data.km}
-      Barva: ${data.barva}
-      Oprema: ${data.oprema}
-      Model: ${data.model}
-      Prostornina motorja: ${data.prostorninamotorja}
-      Moč: ${data.moc}
-      Opis trenutnih stanj: ${data.opistrenutnih}
-      Obveščanje: ${data.obvescanje}
-      `;
-
-    // send data to serverless function
-    await fetch('/api/email', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-
-      // Write a email message from the data object
-
-
-      body: JSON.stringify({
-        message: emailMessage,
-      }),
-    });
-
-  
-
     console.log(data);
     setFormSubmitted(true);
     // clear form
@@ -109,17 +66,15 @@ const handleSubmit = async (e: { preventDefault: () => void; }) => {
     setEmail('');
     setPhone('');
     setMessage('');
-    setLastnik('');
-    setOpissaniranih('');
+    
     setOcena('');
-    setKarambol('');
+   
     setKm('');
     setBarva('');
-    setOprema('');
+    setZelje('');
     setModel('');
     setProstorninamotorja('');
     setMoc('');
-    setOpistrenutnih('');
     setObvescanje('');
 
     };
@@ -175,9 +130,9 @@ const handleSubmit = async (e: { preventDefault: () => void; }) => {
           <rect width={404} height={404} fill="url(#85737c0e-0916-41d7-917f-596dc7edfa27)" />
         </svg>
         <div className="text-center">
-          <h2 className="text-3xl font-extrabold tracking-tight text-gray-900 sm:text-4xl">Obrazec za odkup</h2>
+          <h2 className="text-3xl font-extrabold tracking-tight text-gray-900 sm:text-4xl">Obrazec za uvoz</h2>
           <p className="mt-4 text-lg leading-6 text-gray-500">
-            Izpolnite spodnji obrazec z vašimi podatki in podatki o vašem vozilu in vas bomo v najkrajšem možnem času kontaktirali.
+          Pošljite povpraševanje za vozilo po naročilu
           </p>
         </div>
         <div className="mt-12">
@@ -313,15 +268,15 @@ const handleSubmit = async (e: { preventDefault: () => void; }) => {
             </div>
 
             <div className="sm:col-span-2">
-              <label htmlFor="oprema" className="block text-sm font-medium text-gray-700">
-                Dodatna oprema
+              <label htmlFor="zelje" className="block text-sm font-medium text-gray-700">
+                Dodatne želje
               </label>
               <div className="mt-1">
                 <textarea
-                  id="oprema"
-                  name="oprema"
-                  value={oprema}
-                  onChange={(e) => setOprema(e.target.value)}
+                  id="zelje"
+                  name="zelje"
+                  value={zelje}
+                  onChange={(e) => setZelje(e.target.value)}
                   rows={2}
                   className="py-3 px-4 block w-full shadow-sm focus:ring-red-500 focus:border-red-500 border border-gray-300 rounded-md"
                   defaultValue={''}
@@ -329,85 +284,15 @@ const handleSubmit = async (e: { preventDefault: () => void; }) => {
               </div>
             </div>
 
-            <div className={""}>
-              <label htmlFor="lastnik" className="block text-sm font-medium text-gray-700">
-                Lastnik
-              </label>
-              <div  className="mt-1">
-                <select
-                  id="lastnik"
-                  value={lastnik}
-                  onChange={(e) => setLastnik(e.target.value)}
-                  name="lastnik"
-                  className="py-3  border-2  px-4 block w-full shadow-sm focus:ring-red-500 focus:border-red-500 border-gray-300 rounded-md"
-                  defaultValue="1. Lastnik"
-                >
-                  <option value={"1. lastnik"}>1. Lastnik</option>
-                  <option value={"2. lastnik"}>2. Lastnik</option>
-                  <option value={"3. lastnik"}>3. Lastnik</option>
-                  <option value={"4. lastnik"}>4. Lastnik</option>
-                </select>
-              </div>
+           
 
-            </div>
+            
 
-            <div className={""}>
-              <label htmlFor="karambol" className="block text-sm font-medium text-gray-700">
-                Je bilo vozilo karambolirano?
-              </label>
-              <div  className="mt-1">
-                <select
-                  id="karambol"
-                  name="karambol"
-                  value={karambol}
-                  onChange={(e) => setKarambol(e.target.value)}
-                  className="py-3  border-2  px-4 block w-full shadow-sm focus:ring-red-500 focus:border-red-500 border-gray-300 rounded-md"
-                  defaultValue="Ne"
-                >
-                  <option>Da</option>
-                  <option>Ne</option>
-
-                </select>
-              </div>
-
-            </div>
-
-            <div className="sm:col-span-2">
-              <label htmlFor="opissaniranih" className="block text-sm font-medium text-gray-700">
-                Opis saniranih poškodb
-              </label>
-              <div className="mt-1">
-                <textarea
-                  id="opissaniranih"
-                  name="opissaniranih"
-                  value={opissaniranih}
-                  onChange={(e) => setOpissaniranih(e.target.value)}
-                  rows={3}
-                  className="py-3 px-4 block w-full shadow-sm focus:ring-red-500 focus:border-red-500 border border-gray-300 rounded-md"
-                  defaultValue={''}
-                />
-              </div>
-            </div>
-            <div className="sm:col-span-2">
-              <label htmlFor="opistrenutnih" className="block text-sm font-medium text-gray-700">
-                Opis trenutnih poškodb
-              </label>
-              <div className="mt-1">
-                <textarea
-                  id="opistrenutnih"
-                  name="opistrenutnih"
-                  value={opistrenutnih}
-                  onChange={(e) => setOpistrenutnih(e.target.value)}
-                  rows={3}
-                  className="py-3 px-4 block w-full shadow-sm focus:ring-red-500 focus:border-red-500 border border-gray-300 rounded-md"
-                  defaultValue={''}
-                />
-              </div>
-            </div>
+           
 
             <div className="sm:col-span-2">
               <label htmlFor="ocena" className="block text-sm font-medium text-gray-700">
-                Koliko cenite vaše vozilo (€) ?
+                Okvirna cena
               </label>
               <div className="mt-1">
                 <input

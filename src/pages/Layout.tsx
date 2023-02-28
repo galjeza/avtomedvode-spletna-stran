@@ -10,7 +10,7 @@ export default function Layout({ children }: Props) {
   return (
     <>
     <Head>
-    <title>Avtomedvode - prodaja in odkup rabljenih vozil</title>
+    <title>Avto Medvode - prodaja in odkup rabljenih vozil</title>
     <meta name="description" content="Prodaja rabljenih vozil, odkup vozil, prepis lastništva vozila. AvtoMedvode, vaš najbolj zanesljiv partner."
     />
     <meta name="keywords" content={"prodaja vozil, rabljena vozila, prodaja rabljenih vozil, rabljeno vozilo, prepis lastništva vozila, odkup rabljenih vozil, odkup rabljenega vozila, odkup vozila, prodaja avtomobila, prodaja avta, avto, avtomobil, vozilo"}/>
