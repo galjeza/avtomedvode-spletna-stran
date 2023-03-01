@@ -89,7 +89,7 @@ Kupovanje rabljenega vozila od kupca zahteva sprejemanje kompromisov. Če želit
               <rect width={404} height={384} fill="url(#bedc54bc-7371-44a2-a2bc-dc68d819ae60)" />
             </svg>
             <blockquote className="relative bg-white rounded-lg shadow-lg">
-              <Image  className={"rounded-lg"} src={"/bmw.png"} alt="bmw-car" width="404" height="384"/>
+              <Image className={"rounded-lg"} src={"/bmw.png"} alt="bmw-car" fill/>
             </blockquote>
           </div>
         </div>
