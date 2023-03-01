@@ -86,7 +86,7 @@ const handleSubmit = async (e: { preventDefault: () => void; }) => {
       `;
 
     // send data to serverless function
-    await fetch('/api/email', {
+    void await fetch('/api/email', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
