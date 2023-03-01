@@ -85,7 +85,8 @@ const handleSubmit = async (e: { preventDefault: () => void; }) => {
       Obveščanje: ${data.obvescanje}
       `;
 
-     void fetch('/api/email', {
+      // eslint-disable-next-line @typescript-eslint/no-floating-promises
+      fetch('/api/email', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
