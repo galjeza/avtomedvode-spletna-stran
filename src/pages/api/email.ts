@@ -10,7 +10,7 @@ interface RequestBody {
 
 
 // eslint-disable-next-line import/no-anonymous-default-export
-export default async (req: NextApiRequest, res: NextApiResponse) => {
+export default  (req: NextApiRequest, res: NextApiResponse) => {
   // get data from req.body with typescript
   const { message }: RequestBody = req.body as RequestBody;
 
@@ -34,12 +34,13 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
    }
 
    // eslint-disable-next-line @typescript-eslint/no-unsafe-member-access, @typescript-eslint/no-unsafe-call
-   transporter.sendMail(mailData, function (err: any, info: any) {
-    if(err)
-      console.log(err)
-    else
-      console.log(info)
-  })
+    transporter.sendMail(mailData, function (err: any, info: any) {
+     if (err)
+       console.log(err);
+
+     else
+       console.log(info);
+   })
 
   res.send('ok')
 
