@@ -41,7 +41,6 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
       console.log(info)
   })
 
-  console.log(email)
   res.send('ok')
 
 }
